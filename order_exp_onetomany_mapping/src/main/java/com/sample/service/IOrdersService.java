@@ -1,0 +1,10 @@
+package com.sample.service;
+
+import com.sample.entity.Orders;
+import com.sample.request.OrdersRequest;
+
+public interface IOrdersService {
+	public String createOrder(OrdersRequest request);
+	public int getOrderById(Integer id);
+
+}

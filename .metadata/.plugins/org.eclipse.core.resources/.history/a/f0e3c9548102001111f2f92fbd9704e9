@@ -1,0 +1,12 @@
+package com.sample.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sample.entity.ProductEntity;
+
+public interface IProductRepository extends JpaRepository<ProductEntity, Integer> {
+	
+//	 Optional<ProductEntity> getProductByName(String name);
+}

@@ -1,0 +1,32 @@
+package com.sample.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sample.entity.ProductEntity;
+import com.sample.repository.IProductRepository;
+import com.sample.request.ProductRequest;
+
+@Service
+public class ProductServiceImpl implements IProductService {
+
+	@Autowired
+	IProductRepository iProductRepository;
+	@Override
+	public ProductEntity findProdutByName(String name) {
+		ProductEntity entity = 	iProductRepository.getProductByName(name);
+		return entity;
+	}
+	@Override
+	public String insertProduct(ProductRequest request) {
+		
+		ProductEntity entity = new ProductEntity();
+		entity.setPname(request.getPname());
+		entity.setPrice(request.getPrice());
+		
+		entity = iProductRepository.save(entity);
+		return "Product added Successfully";
+		
+	}
+
+}

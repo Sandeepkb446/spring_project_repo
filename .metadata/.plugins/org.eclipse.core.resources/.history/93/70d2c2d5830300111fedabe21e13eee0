@@ -1,0 +1,17 @@
+package com.sample.entity;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="orders")
+public class Orders {
+
+	private int orderId;
+	private String status;
+	private List<OrderItems> items;
+	
+	
+}

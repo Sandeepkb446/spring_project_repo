@@ -1,0 +1,20 @@
+package com.sample.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sample.request.ProductRequest;
+import com.sample.service.ProductServiceImpl;
+
+@RestController
+public class ProductController {
+
+	@Autowired
+	ProductServiceImpl prodImpl;
+	
+	
+	public String InsertProduct(ProductRequest request) {
+		
+	}
+	
+}

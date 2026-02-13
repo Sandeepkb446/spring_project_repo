@@ -1,0 +1,12 @@
+package com.sample.service;
+
+import java.util.List;
+
+import com.sample.entity.ProductEntity;
+import com.sample.request.ProductRequest;
+
+public interface IProductService {
+  public ProductEntity getProduct(String name);
+  public String insertProduct(ProductRequest request);
+  public List<ProductEntity> ShowAllProducts();
+}

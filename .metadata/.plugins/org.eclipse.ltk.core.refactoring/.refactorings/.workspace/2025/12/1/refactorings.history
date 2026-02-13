@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;spring_bean_creation&apos; to &apos;spring_bean_creation_xml&apos;" description="Rename resource &apos;spring_bean_creation&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/spring_bean_creation" name="spring_bean_creation_xml" stamp="1766990057397" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;HandleMultipleBean&apos;" deleteContents="false" description="Delete resource &apos;HandleMultipleBean&apos;" element1="/HandleMultipleBean" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1767164431908"/>
+</session>

@@ -1,0 +1,34 @@
+package com.sample.service;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.sample.entity.OrderItems;
+import com.sample.entity.Orders;
+import com.sample.request.OrderItemsRequest;
+import com.sample.request.OrdersRequest;
+
+@Service
+public class ImplOrdesService implements IOrdersService {
+
+	@Override
+	public String createOrder(OrdersRequest request) {
+		
+		Orders orders = new Orders();
+		orders.setStatus(request.getStatus());
+		
+		List<OrderItemsRequest> requestitems = request.getItems();
+		List<OrderItems> entryitems = new ArrayList<OrderItems>();
+		
+		for(OrderItemsRequest oir :requestitems) {
+			OrderItems orderItems = new  OrderItems();
+			orderItems.setItemName(oir.getItemName());
+		}
+		
+		return null;
+	}
+
+}

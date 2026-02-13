@@ -1,0 +1,10 @@
+spring.application.name=order_exp_onetomany_mapping
+spring.datasource.url=jdbc:mysql://localhost:3306/sample_db
+
+spring.datasource.username=root
+spring.datasource.password=2001
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect

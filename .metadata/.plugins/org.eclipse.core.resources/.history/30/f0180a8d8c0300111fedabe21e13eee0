@@ -1,0 +1,21 @@
+package com.sample.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sample.request.OrdersRequest;
+import com.sample.service.ImplOrdesService;
+
+@RestController
+@RequestMapping("/home")
+public class OrdersController {
+
+	private ImplOrdesService ordesService;
+	
+	public ResponseEntity<String> placeOrder(OrdersRequest req){
+		String msg = ordesService.createOrder(req);
+		return new ResponseEntity<String>(msg,HttpStatus.CREATED);
+	}
+}

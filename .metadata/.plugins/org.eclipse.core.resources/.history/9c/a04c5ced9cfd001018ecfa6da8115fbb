@@ -1,0 +1,5 @@
+package com.amazon.order.request;
+
+public class OrderRequest {
+
+}

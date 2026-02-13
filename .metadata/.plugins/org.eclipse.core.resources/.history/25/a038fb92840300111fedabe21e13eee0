@@ -1,0 +1,12 @@
+package com.sample.request;
+
+import java.util.List;
+
+import com.sample.entity.OrderItems;
+
+public class OrdersRequest {
+
+	private String status;
+	
+	private List<OrderItems> items;
+}

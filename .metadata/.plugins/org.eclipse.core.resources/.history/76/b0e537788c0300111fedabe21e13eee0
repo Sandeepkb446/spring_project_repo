@@ -1,0 +1,17 @@
+package com.sample.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sample.request.OrdersRequest;
+import com.sample.service.ImplOrdesService;
+
+@RestController
+public class OrdersController {
+
+	private ImplOrdesService ordesService;
+	
+	public ResponseEntity<String> placeOrder(OrdersRequest req){
+		String msg = ordesService.createOrder(req);
+	}
+}

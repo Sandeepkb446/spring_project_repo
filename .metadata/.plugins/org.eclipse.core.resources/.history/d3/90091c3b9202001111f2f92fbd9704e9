@@ -1,0 +1,54 @@
+package com.sample.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+import com.sample.entity.ProductEntity;
+import com.sample.repository.IProductRepository;
+import com.sample.request.ProductRequest;
+
+@Service
+public class ProductServiceImpl implements IProductService {
+
+	@Autowired
+	IProductRepository iProductRepository;
+	@Override
+	@Cacheable(value="prod" , key="#name")
+	public ProductEntity getProduct(String name) {
+		System.out.println("ProductServiceImpl.getProduct()");
+		ProductEntity entity = 	iProductRepository.findByPname(name).orElseThrow(()-> new IllegalArgumentException("invalid product name"));
+		return entity;
+	}
+	@Override
+	
+	public String insertProduct(ProductRequest request) {
+		System.out.println("ProductServiceImpl.insertProduct()");
+		Optional<ProductEntity> opt = 	iProductRepository.findByPname(request.getPname());
+		
+		if(opt.isPresent()) 
+		{
+			throw new IllegalArgumentException("Product is allready insetred");
+		}
+		
+		ProductEntity entity = new ProductEntity();
+		entity.setPname(request.getPname());
+		entity.setPrice(request.getPrice());
+		
+		entity = iProductRepository.save(entity);
+		return "Product added Successfully";
+		
+	}
+	@Override
+	public List<ProductEntity> ShowAllProducts() {
+	List<ProductEntity> products =iProductRepository.findAll();
+	ProductRequest response = new ProductRequest();
+	
+	}
+	
+	
+
+}

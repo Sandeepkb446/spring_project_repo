@@ -1,0 +1,27 @@
+package com.flipkart.advice;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+
+@ControllerAdvice
+public class UserExceptionAdvice {
+
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> handleException(Exception e) {
+	System.out.println("UserExceptionAdvice.handleException()");
+		return new ResponseEntity<String>("Something Went Wrong"+ e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		
+	}
+	@ExceptionHandler(UserAlreadyExistException.class)
+	public ResponseEntity<String> handleException(UserAlreadyExistException e) {
+		System.out.println("UserExceptionAdvice.handleException()");
+		return new ResponseEntity<String>("Something Went Wrong"+e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		
+	}
+	
+	
+}
